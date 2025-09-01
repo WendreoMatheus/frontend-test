@@ -81,11 +81,10 @@ GET /users/{userId}          # Author data
 
 ## Tasks (Priority Order)
 
-### 1. Project Setup (10 min)
-- [ ] Create React/Next.js project
-- [ ] Set up your chosen state management solution
-- [ ] Basic folder structure
-- [ ] Configure routing
+### 1. Project Setup
+- [ ] Clone repo
+- [ ] Install dependencies
+- [ ] Run
 
 ### 2. State Management Setup (15 min)
 - [ ] Configure your state management tool
