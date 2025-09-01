@@ -1,6 +1,6 @@
 # Live Coding Test - Frontend Developer
 
-## Format: Live Coding Session (60-90 minutes)
+## Format: Live Coding Session (60 minutes or less)
 
 ### Description
 Build a simple blog application that consumes the JSONPlaceholder API and displays a list of posts. When clicking on a post, users should see details and comments.
