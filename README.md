@@ -208,3 +208,56 @@ npm run dev    # Start development server
 - "Let me set up Zustand for state management..."  
 - "I'm creating the post detail page at src/app/posts/[id]/page.tsx..."
 - "Checking the Network tab to debug the API call..."
+
+## 🔍 Code Validation
+
+### Automated Validation Script
+We've provided a comprehensive validation script that checks:
+- ✅ TypeScript compilation
+- ✅ ESLint code quality  
+- ✅ Prettier formatting
+- ✅ Build success
+- ✅ Code pattern compliance
+- ✅ Required functionality implementation
+
+### Run Validation:
+```bash
+# Run full validation (Linux/Mac)
+npm run validate
+
+# Run full validation (Windows)
+npm run validate:win
+
+# Individual checks:
+npm run type-check    # TypeScript errors
+npm run lint          # ESLint issues  
+npm run format:check  # Formatting issues
+npm run build         # Build errors
+```
+
+### What the Script Validates:
+
+#### 🔧 Technical Quality:
+- No TypeScript compilation errors
+- No ESLint warnings/errors
+- Consistent code formatting (Prettier)
+- Successful build without errors
+
+#### 📋 Implementation Requirements:
+- PostService methods implemented (not throwing "not implemented" errors)
+- Sample data replaced with real API calls
+- Post detail page created (`src/app/posts/[id]/page.tsx`)
+- State management solution detected
+- Error handling implemented
+- Loading states added
+- Navigation between pages working
+
+#### ✅ Validation Results:
+- **Green ✅**: All checks passed - code ready for review
+- **Red ❌**: Issues found - fix before submitting
+
+### 💡 Pro Tips:
+- Run `npm run validate` before submitting your solution
+- Fix linting issues with `npm run lint:fix`
+- Fix formatting with `npm run format`
+- The script will guide you on what's missing
