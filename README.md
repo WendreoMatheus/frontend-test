@@ -3,12 +3,15 @@
 ## Format: Live Coding Session (60 minutes or less)
 
 ### Description
+
 Build a simple blog application called "Devnews" that consumes the JSONPlaceholder API and displays a list of posts. When clicking on a post, users should see the full post details.
 
 ## Available API
+
 **JSONPlaceholder:** `https://jsonplaceholder.typicode.com/`
 
 ### Endpoints to implement:
+
 ```bash
 GET /posts                    # List all posts (REQUIRED)
 GET /posts/{id}              # Specific post details (REQUIRED)
@@ -17,6 +20,7 @@ GET /posts/{id}              # Specific post details (REQUIRED)
 ### Data structure:
 
 **Post from JSONPlaceholder:**
+
 ```json
 {
   "userId": 1,
@@ -29,6 +33,7 @@ GET /posts/{id}              # Specific post details (REQUIRED)
 ## 🏗️ Project Setup Status
 
 ### ✅ Already Configured:
+
 - **Next.js 15** with TypeScript and App Router
 - **Material-UI** with theme configuration
 - **Axios** instance pointing to JSONPlaceholder API
@@ -39,16 +44,19 @@ GET /posts/{id}              # Specific post details (REQUIRED)
   - `src/lib/` - Axios configuration
 
 ### 🔧 Ready to Use Components:
+
 - **Navbar** - Navigation with "Devnews" branding
 - **PostCard** - Displays post data with title, excerpt, author, date
 - **PageContainer** - Layout wrapper with navbar and styling
 
 ### 📝 What You Need to Implement:
+
 The infrastructure is ready - you just need to connect the pieces!
 
 ## Rules & Guidelines
 
 ### ✅ **ALLOWED:**
+
 - **Documentation:** Official docs (React, Next.js, etc.)
 - **StackOverflow:** Search for specific technical questions
 - **Google:** General searches for syntax, APIs, examples
@@ -56,6 +64,7 @@ The infrastructure is ready - you just need to connect the pieces!
 - **Package registries:** npm, yarn for checking package info
 
 ### ❌ **STRICTLY PROHIBITED:**
+
 - **Copy-pasting entire solutions** from tutorials or GitHub
 - **Using pre-built complete applications** as starting point
 - **Having someone else code for you** during the session
@@ -63,6 +72,7 @@ The infrastructure is ready - you just need to connect the pieces!
 - **Screen sharing with external help** during the session
 
 ### 📝 **Communication Expectation:**
+
 - **Narrate your thought process** as you code
 - **Explain decisions** you're making
 - **Mention when consulting external resources**: "I'm checking the React docs for useEffect syntax"
@@ -71,12 +81,14 @@ The infrastructure is ready - you just need to connect the pieces!
 ## 🛠️ Technology Stack
 
 ### ✅ Already Set Up:
+
 - **Next.js 15** with App Router
 - **TypeScript**
 - **Material-UI** (complete theme setup)
 - **Axios** (configured for JSONPlaceholder)
 
 ### 🎯 You Need to Choose:
+
 - **State Management Tool** (pick one):
   - Redux Toolkit (full-featured)
   - Zustand (lightweight, recommended)
@@ -86,6 +98,7 @@ The infrastructure is ready - you just need to connect the pieces!
 ## 🚀 Implementation Tasks (Priority Order)
 
 ### 1. Complete PostService (`src/services/postService.ts`) - 15 min
+
 **File:** `src/services/postService.ts`
 
 The service skeleton is ready - just implement the two methods:
@@ -116,27 +129,33 @@ static async fetchPost(id: string): Promise<ApiResponse<Post>> {
 ```
 
 ### 2. State Management Setup - 10 min
+
 **Choose one and set up:**
+
 - **Option A: Context API** (simplest)
 - **Option B: Zustand** (recommended)
 - **Option C: Redux Toolkit**
 
 Create a store/context to manage:
+
 - Posts list
 - Current post
 - Loading states
 - Error handling
 
 ### 3. Connect Posts List (`src/app/page.tsx`) - 10 min
+
 **File:** `src/app/page.tsx`
 
 Replace the sample data with real API calls:
+
 - Remove `samplePosts` array
 - Use your state management to fetch posts
 - Connect to existing `PostCard` components
 - Handle loading/error states
 
 ### 4. Create Post Details Page - 15 min
+
 **Create:** `src/app/posts/[id]/page.tsx`
 
 ```typescript
@@ -147,6 +166,7 @@ import PageContainer from '../../../components/PageContainer';
 ```
 
 ### 5. Navigation Setup - 10 min
+
 - Update `PostCard` component `onReadMore` handler
 - Use Next.js router to navigate to `/posts/[id]`
 - Add back button on post detail page
@@ -154,6 +174,7 @@ import PageContainer from '../../../components/PageContainer';
 ## Evaluation Criteria
 
 ### Development Process (40%)
+
 - **Problem-solving approach**
 - **State management implementation**
 - **Debugging skills and tool usage**
@@ -162,6 +183,7 @@ import PageContainer from '../../../components/PageContainer';
 - **Resource utilization (docs, Stack Overflow, etc.)**
 
 ### Functionality (35%)
+
 - **Posts list working correctly**
 - **Navigation between pages**
 - **API data properly displayed**
@@ -169,6 +191,7 @@ import PageContainer from '../../../components/PageContainer';
 - **Dynamic routing implemented**
 
 ### Code Quality (25%)
+
 - **Component structure**
 - **State management patterns**
 - **Clean code practices**
@@ -178,12 +201,14 @@ import PageContainer from '../../../components/PageContainer';
 ## 💡 Quick Start Guide
 
 ### 1. First Steps:
+
 ```bash
 npm install    # Dependencies already configured
 npm run dev    # Start development server
 ```
 
 ### 2. Development Flow:
+
 1. **Start with PostService** - Implement the API calls first
 2. **Choose state management** - Set up your preferred solution
 3. **Connect the homepage** - Replace sample data with real API
@@ -191,6 +216,7 @@ npm run dev    # Start development server
 5. **Add navigation** - Connect list to detail pages
 
 ### 🎯 Success Criteria:
+
 - [ ] Posts list loads from JSONPlaceholder API
 - [ ] Clicking a post navigates to detail page
 - [ ] Individual post shows full content
@@ -198,29 +224,34 @@ npm run dev    # Start development server
 - [ ] Error handling implemented
 
 ### 🔧 Helpful Files to Check:
+
 - `src/services/postService.ts` - API implementation examples
 - `src/components/PostCard.tsx` - Already handles post data
 - `src/app/page.tsx` - Current sample data implementation
 - `src/types/post.ts` - TypeScript interfaces
 
 ### 💬 Communication Tips:
+
 - "I'm implementing the fetchPosts method using the provided example..."
-- "Let me set up Zustand for state management..."  
+- "Let me set up Zustand for state management..."
 - "I'm creating the post detail page at src/app/posts/[id]/page.tsx..."
 - "Checking the Network tab to debug the API call..."
 
 ## 🔍 Code Validation
 
 ### Automated Validation Script
+
 We've provided a comprehensive validation script that checks:
+
 - ✅ TypeScript compilation
-- ✅ ESLint code quality  
+- ✅ ESLint code quality
 - ✅ Prettier formatting
 - ✅ Build success
 - ✅ Code pattern compliance
 - ✅ Required functionality implementation
 
 ### Run Validation:
+
 ```bash
 # Run full validation (Linux/Mac)
 npm run validate
@@ -230,7 +261,7 @@ npm run validate:win
 
 # Individual checks:
 npm run type-check    # TypeScript errors
-npm run lint          # ESLint issues  
+npm run lint          # ESLint issues
 npm run format:check  # Formatting issues
 npm run build         # Build errors
 ```
@@ -238,12 +269,14 @@ npm run build         # Build errors
 ### What the Script Validates:
 
 #### 🔧 Technical Quality:
+
 - No TypeScript compilation errors
 - No ESLint warnings/errors
 - Consistent code formatting (Prettier)
 - Successful build without errors
 
 #### 📋 Implementation Requirements:
+
 - PostService methods implemented (not throwing "not implemented" errors)
 - Sample data replaced with real API calls
 - Post detail page created (`src/app/posts/[id]/page.tsx`)
@@ -253,10 +286,12 @@ npm run build         # Build errors
 - Navigation between pages working
 
 #### ✅ Validation Results:
+
 - **Green ✅**: All checks passed - code ready for review
 - **Red ❌**: Issues found - fix before submitting
 
 ### 💡 Pro Tips:
+
 - Run `npm run validate` before submitting your solution
 - Fix linting issues with `npm run lint:fix`
 - Fix formatting with `npm run format`

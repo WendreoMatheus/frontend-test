@@ -7,7 +7,10 @@ interface PageContainerProps {
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 }
 
-export default function PageContainer({ children, maxWidth = 'lg' }: PageContainerProps) {
+export default function PageContainer({
+  children,
+  maxWidth = 'lg',
+}: PageContainerProps) {
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
       <Navbar />

@@ -15,7 +15,7 @@ export default function Navbar() {
             Devnews
           </Link>
         </Typography>
-        
+
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button color="inherit">
             <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -23,12 +23,18 @@ export default function Navbar() {
             </Link>
           </Button>
           <Button color="inherit">
-            <Link href="/posts" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link
+              href="/posts"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               Posts
             </Link>
           </Button>
           <Button color="inherit">
-            <Link href="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link
+              href="/about"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               About
             </Link>
           </Button>
