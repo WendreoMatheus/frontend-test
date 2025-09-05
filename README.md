@@ -1,24 +1,22 @@
-# Live Coding Test - Frontend Developer
+# Devnews - Live Coding Test
 
 ## Format: Live Coding Session (60 minutes or less)
 
 ### Description
-Build a simple blog application that consumes the JSONPlaceholder API and displays a list of posts. When clicking on a post, users should see details and comments.
+Build a simple blog application called "Devnews" that consumes the JSONPlaceholder API and displays a list of posts. When clicking on a post, users should see the full post details.
 
 ## Available API
 **JSONPlaceholder:** `https://jsonplaceholder.typicode.com/`
 
-### Endpoints to use:
+### Endpoints to implement:
 ```bash
-GET /posts                    # List all posts
-GET /posts/{id}              # Specific post  
-GET /posts/{id}/comments     # Post comments
-GET /users/{userId}          # Author data
+GET /posts                    # List all posts (REQUIRED)
+GET /posts/{id}              # Specific post details (REQUIRED)
 ```
 
 ### Data structure:
 
-**Post:**
+**Post from JSONPlaceholder:**
 ```json
 {
   "userId": 1,
@@ -28,16 +26,25 @@ GET /users/{userId}          # Author data
 }
 ```
 
-**Comment:**
-```json
-{
-  "postId": 1,
-  "id": 1,
-  "name": "id labore ex et quam laborum",
-  "email": "Eliseo@gardner.biz",
-  "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos..."
-}
-```
+## 🏗️ Project Setup Status
+
+### ✅ Already Configured:
+- **Next.js 15** with TypeScript and App Router
+- **Material-UI** with theme configuration
+- **Axios** instance pointing to JSONPlaceholder API
+- **Project structure** with organized folders:
+  - `src/components/` - UI components (Navbar, PostCard, PageContainer)
+  - `src/services/` - API service layer
+  - `src/types/` - TypeScript interfaces
+  - `src/lib/` - Axios configuration
+
+### 🔧 Ready to Use Components:
+- **Navbar** - Navigation with "Devnews" branding
+- **PostCard** - Displays post data with title, excerpt, author, date
+- **PageContainer** - Layout wrapper with navbar and styling
+
+### 📝 What You Need to Implement:
+The infrastructure is ready - you just need to connect the pieces!
 
 ## Rules & Guidelines
 
@@ -61,63 +68,88 @@ GET /users/{userId}          # Author data
 - **Mention when consulting external resources**: "I'm checking the React docs for useEffect syntax"
 - **Share any challenges** you encounter
 
-## Required Technologies
+## 🛠️ Technology Stack
 
-### **Mandatory:**
-- **React** (Create React App, Vite, or Next.js)
-- **State Management Tool** (choose one):
-  - Redux Toolkit
-  - Zustand
-  - Context API + useReducer
-  - Jotai
-  - Valtio
-  - Any other you prefer
-- **JavaScript** or **TypeScript**
-- **fetch** or **axios** for API calls
+### ✅ Already Set Up:
+- **Next.js 15** with App Router
+- **TypeScript**
+- **Material-UI** (complete theme setup)
+- **Axios** (configured for JSONPlaceholder)
 
-### **CSS Options:**
-- Plain CSS, CSS Modules, or Styled Components
-- **Frameworks allowed:** Tailwind, Bootstrap, Material-UI, Chakra UI
+### 🎯 You Need to Choose:
+- **State Management Tool** (pick one):
+  - Redux Toolkit (full-featured)
+  - Zustand (lightweight, recommended)
+  - Context API + useReducer (built-in)
+  - Jotai or Valtio (atomic)
 
-## Tasks (Priority Order)
+## 🚀 Implementation Tasks (Priority Order)
 
-### 1. Project Setup
-- [ ] Clone repo
-- [ ] Install dependencies
-- [ ] Run
+### 1. Complete PostService (`src/services/postService.ts`) - 15 min
+**File:** `src/services/postService.ts`
 
-### 2. State Management Setup (15 min)
-- [ ] Configure your state management tool
-- [ ] Create actions/reducers/stores for posts
-- [ ] Set up loading and error states
-- [ ] Plan your state structure
+The service skeleton is ready - just implement the two methods:
 
-### 3. Posts List (20 min)
-- [ ] Fetch posts from API using your state manager
-- [ ] Display list with title and body preview (first 100 chars)
-- [ ] Implement loading state
-- [ ] Add clickable links to details
-- [ ] Handle errors gracefully
+```typescript
+// 1. Implement fetchPosts()
+static async fetchPosts(): Promise<PostsResponse> {
+  // TODO: Uncomment and adapt this code:
+  // const response = await api.get('/posts');
+  // return {
+  //   data: response.data.map(post => ({
+  //     id: post.id.toString(),
+  //     title: post.title,
+  //     content: post.body,
+  //     excerpt: post.body.substring(0, 100) + '...',
+  //     author: `User ${post.userId}`, // You can enhance this later
+  //     createdAt: new Date().toISOString(), // JSONPlaceholder doesn't have dates
+  //     updatedAt: new Date().toISOString(),
+  //   })),
+  //   success: true
+  // };
+}
 
-### 4. Post Details Page (20 min)
-- [ ] Implement dynamic routing `/posts/[id]`
-- [ ] Fetch specific post data
-- [ ] Display full title and body
-- [ ] Add back navigation button
-- [ ] Handle post not found scenarios
+// 2. Implement fetchPost(id)
+static async fetchPost(id: string): Promise<ApiResponse<Post>> {
+  // TODO: Similar implementation for single post
+}
+```
 
-### 5. Comments Integration (15 min)
-- [ ] Fetch post comments
-- [ ] Display comments in details page
-- [ ] Show commenter name and email
-- [ ] Handle empty comments state
+### 2. State Management Setup - 10 min
+**Choose one and set up:**
+- **Option A: Context API** (simplest)
+- **Option B: Zustand** (recommended)
+- **Option C: Redux Toolkit**
 
-### 6. Enhancements (Remaining time)
-- [ ] Fetch and display post author information
-- [ ] Add basic styling/responsive design
-- [ ] Implement better error handling
-- [ ] Add loading skeletons
-- [ ] Search functionality (bonus)
+Create a store/context to manage:
+- Posts list
+- Current post
+- Loading states
+- Error handling
+
+### 3. Connect Posts List (`src/app/page.tsx`) - 10 min
+**File:** `src/app/page.tsx`
+
+Replace the sample data with real API calls:
+- Remove `samplePosts` array
+- Use your state management to fetch posts
+- Connect to existing `PostCard` components
+- Handle loading/error states
+
+### 4. Create Post Details Page - 15 min
+**Create:** `src/app/posts/[id]/page.tsx`
+
+```typescript
+// Use existing components:
+import PageContainer from '../../../components/PageContainer';
+// Create content area for full post details
+// Use PostService.fetchPost(id) to get data
+```
+
+### 5. Navigation Setup - 10 min
+- Update `PostCard` component `onReadMore` handler
+- Use Next.js router to navigate to `/posts/[id]`
+- Add back button on post detail page
 
 ## Evaluation Criteria
 
@@ -143,24 +175,36 @@ GET /users/{userId}          # Author data
 - **Error handling**
 - **TypeScript usage (if chosen)**
 
-## Session Tips
+## 💡 Quick Start Guide
 
-### **Focus First On:**
-1. ✅ Get it working (MVP)
-2. ✅ State management setup
-3. ✅ Data on screen
-4. ✅ Basic navigation
-5. ✅ Then improve
+### 1. First Steps:
+```bash
+npm install    # Dependencies already configured
+npm run dev    # Start development server
+```
 
-### **Communicate:**
-- "I'm setting up Redux Toolkit for state management..."
-- "Let me check the React documentation for this hook..."
-- "I'll search Stack Overflow for this error..."
-- "I would implement X feature if I had more time..."
+### 2. Development Flow:
+1. **Start with PostService** - Implement the API calls first
+2. **Choose state management** - Set up your preferred solution
+3. **Connect the homepage** - Replace sample data with real API
+4. **Create post details** - Add the individual post page
+5. **Add navigation** - Connect list to detail pages
 
-### **If You Get Stuck:**
-- Use console.log liberally
-- Check Network tab in DevTools
-- Explain what you're thinking
-- It's OK to search for help
-- Ask clarifying questions
+### 🎯 Success Criteria:
+- [ ] Posts list loads from JSONPlaceholder API
+- [ ] Clicking a post navigates to detail page
+- [ ] Individual post shows full content
+- [ ] Loading states work
+- [ ] Error handling implemented
+
+### 🔧 Helpful Files to Check:
+- `src/services/postService.ts` - API implementation examples
+- `src/components/PostCard.tsx` - Already handles post data
+- `src/app/page.tsx` - Current sample data implementation
+- `src/types/post.ts` - TypeScript interfaces
+
+### 💬 Communication Tips:
+- "I'm implementing the fetchPosts method using the provided example..."
+- "Let me set up Zustand for state management..."  
+- "I'm creating the post detail page at src/app/posts/[id]/page.tsx..."
+- "Checking the Network tab to debug the API call..."
