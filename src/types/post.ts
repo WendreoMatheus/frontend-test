@@ -16,11 +16,4 @@ export interface ApiResponse<T> {
   success: boolean;
 }
 
-export interface PostsResponse extends ApiResponse<Post[]> {
-  pagination?: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-  };
-}
+export interface PostsResponse extends ApiResponse<Post[]> {}

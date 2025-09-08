@@ -91,9 +91,11 @@ The infrastructure is ready - you just need to connect the pieces!
 
 - **State Management Tool** (pick one):
   - Redux Toolkit (full-featured)
-  - Zustand (lightweight, recommended)
+  - Zustand (lightweight)
   - Context API + useReducer (built-in)
-  - Jotai or Valtio (atomic)
+  - Jotai (atomic state)
+  - Recoil (atomic state)
+  - Custom React hooks with useState/useEffect
 
 ## 🚀 Implementation Tasks (Priority Order)
 
@@ -101,40 +103,18 @@ The infrastructure is ready - you just need to connect the pieces!
 
 **File:** `src/services/postService.ts`
 
-The service skeleton is ready - just implement the two methods:
-
-```typescript
-// 1. Implement fetchPosts()
-static async fetchPosts(): Promise<PostsResponse> {
-  // TODO: Uncomment and adapt this code:
-  // const response = await api.get('/posts');
-  // return {
-  //   data: response.data.map(post => ({
-  //     id: post.id.toString(),
-  //     title: post.title,
-  //     content: post.body,
-  //     excerpt: post.body.substring(0, 100) + '...',
-  //     author: `User ${post.userId}`, // You can enhance this later
-  //     createdAt: new Date().toISOString(), // JSONPlaceholder doesn't have dates
-  //     updatedAt: new Date().toISOString(),
-  //   })),
-  //   success: true
-  // };
-}
-
-// 2. Implement fetchPost(id)
-static async fetchPost(id: string): Promise<ApiResponse<Post>> {
-  // TODO: Similar implementation for single post
-}
-```
+Implement the fetchPosts() and fetchPost() methods to connect with the JSONPlaceholder API.
 
 ### 2. State Management Setup - 10 min
 
 **Choose one and set up:**
 
-- **Option A: Context API** (simplest)
-- **Option B: Zustand** (recommended)
-- **Option C: Redux Toolkit**
+- **Option A: Context API** (built-in React)
+- **Option B: Zustand** (lightweight)
+- **Option C: Redux Toolkit** (full-featured)
+- **Option D: Jotai** (atomic state)
+- **Option E: Recoil** (atomic state)
+- **Option F: Custom React hooks** (useState/useEffect pattern)
 
 Create a store/context to manage:
 
@@ -225,15 +205,16 @@ npm run dev    # Start development server
 
 ### 🔧 Helpful Files to Check:
 
-- `src/services/postService.ts` - API implementation examples
+- `src/services/postService.ts` - API service methods
 - `src/components/PostCard.tsx` - Already handles post data
 - `src/app/page.tsx` - Current sample data implementation
 - `src/types/post.ts` - TypeScript interfaces
 
 ### 💬 Communication Tips:
 
-- "I'm implementing the fetchPosts method using the provided example..."
-- "Let me set up Zustand for state management..."
+- "I'm implementing the fetchPosts method..."
+- "Let me set up [chosen state management solution] for state management..."
+- "I'm creating custom hooks to manage the API calls..."
 - "I'm creating the post detail page at src/app/posts/[id]/page.tsx..."
 - "Checking the Network tab to debug the API call..."
 
